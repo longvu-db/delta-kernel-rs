@@ -149,9 +149,7 @@ shape:
         commit_metadata.max_published_version(),
     )?;
 
-    // Return the staged file metadata on success. HEAD the file via
-    // engine.storage_handler().head() to get the real byte size, and use
-    // the in-commit timestamp as the logical commit time (not the filesystem
+    // Use the in-commit timestamp as the logical commit time (not the filesystem
     // mtime, which reflects when the file was written rather than when the
     // commit took effect).
     let staged_file = engine.storage_handler().head(&staged_path)?;
